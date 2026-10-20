@@ -4,16 +4,16 @@ import { View, StyleSheet, Image } from 'react-native';
 export default function HeroGraphic() {
   return (
     <View style={styles.container}>
-      {/* Marco decorativo sutil con borde */}
-      <View style={styles.frameBorder} />
+      {/* Marco geométrico rectangular con desborde */}
+      <View style={styles.wireframeBox} />
 
-      {/* Imagen abstracta 3D de la flor/espiral violeta */}
+      {/* Flor / Espiral 3D lila */}
       <Image
         source={{
-          uri: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80',
+          uri: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80',
         }}
-        style={styles.image}
-        resizeMode="contain"
+        style={styles.flowerImage}
+        resizeMode="cover"
       />
     </View>
   );
@@ -27,17 +27,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     position: 'relative',
     marginVertical: 10,
+    overflow: 'visible',
   },
-  frameBorder: {
+  wireframeBox: {
     position: 'absolute',
-    width: '88%',
-    height: '92%',
+    left: 24,
+    right: -20, // Se desborda hacia la derecha tal como en la imagen
+    top: 10,
+    bottom: 10,
     borderWidth: 1.5,
-    borderColor: 'rgba(167, 139, 250, 0.28)',
-    borderRadius: 12,
+    borderColor: 'rgba(167, 139, 250, 0.35)',
+    borderRadius: 4,
+    zIndex: 1,
   },
-  image: {
-    width: '85%',
-    height: '85%',
+  flowerImage: {
+    width: 320,
+    height: 320,
+    borderRadius: 160,
+    zIndex: 2,
   },
 });
